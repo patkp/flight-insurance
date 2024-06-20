@@ -1,0 +1,33 @@
+{
+    "issuer": "Test",
+    "desc": " Provider",
+    "website": "http://localhost:3000/app/flightdetails",
+    "APIs": [
+        {
+            "host": "flight.api-service.live",
+            "intercept": {
+                "url": "flight-data",
+                "method": "GET"
+            },
+            "asset": [
+                {
+                    "key":"data|status",
+                    "value":"scheduled",
+                    "operation":"="
+                },
+                {
+                    "key": "data|flight|iataNumber",
+                    "value": "HA2307",
+                    "operation": "="
+                }
+            ],
+            "nullifier": "data|flight|iataNumber"
+        }
+    ],
+    "HRCondition": [
+        "User can Purchase Insurance"
+    ],
+    "tips": {
+        "message": "When you successfully log in, please click the 'Start' button to initiate the verification process."
+    }
+}
