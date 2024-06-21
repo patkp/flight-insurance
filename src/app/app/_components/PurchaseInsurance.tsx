@@ -35,25 +35,27 @@ const FlightDetailsVerification = ({ goToPreviousStep, goToNextStep }: FlightDet
 			flightNumber: data.flightNumber,
 			departureAirport: data.departureAirport,
 			destinationAirport: data.destinationAirport,
-			departureDate: new Date(data.departureDate).getTime() / 1000, 
-			arrivalDate: new Date(data.arrivalDate).getTime() / 1000,
+			departureDate: Math.floor(new Date(data.departureDate).getTime() / 1000), 
+			arrivalDate: Math.floor(new Date(data.arrivalDate).getTime() / 1000),
 		};
 
 		const id = toast.loading("Purchasing Insurance...");
 		setLoading(true);
 
 		try {
-			const contractAddress = "0x481c33d172f87CBb318Ecf8eF786EA6d4F633A92"; 
-			const provider =   accountPData.provider; 
+			const contractAddress = "0x481c33d172f87CBb318Ecf8eF786EA6d4F633A92";
+			const provider = accountPData.provider;
 			const signer = accountPData.signer;
 			const contract = new ethers.Contract(contractAddress, PurchaseInsuranceABI, signer);
 
+			// Calling purchasePolicy with the correct parameters
 			const transaction = await contract.purchasePolicy(
 				payload.flightNumber,
 				payload.departureAirport,
+				payload.destinationAirport,
 				payload.departureDate,
 				payload.arrivalDate,
-				{ value: ethers.parseEther("0.001") } 
+				{ value: ethers.parseEther("0.001") }
 			);
 
 			await transaction.wait();
@@ -61,7 +63,7 @@ const FlightDetailsVerification = ({ goToPreviousStep, goToNextStep }: FlightDet
 			toast.success("Insurance purchased successfully!", { id });
 			goToNextStep();
 		} catch (error) {
-			console.error(error);
+			console.error("Error:", error);
 			toast.error("Failed to purchase insurance. Please try again.", { id });
 		} finally {
 			setLoading(false);
