@@ -1,0 +1,238 @@
+ [
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "insured",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "policyId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "flightNumber",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "PolicyPurchased",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            }
+        ],
+        "name": "ProofVerified",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            }
+        ],
+        "name": "VerificationFailed",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            }
+        ],
+        "name": "deactivatePolicy",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            }
+        ],
+        "name": "getPolicy",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "policyId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "insured",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "flightNumber",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "departureAirport",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "arrivalAirport",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "departureTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "isActive",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct FlightInsurance.Policy",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "policies",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "policyId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "insured",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "flightNumber",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "departureAirport",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "arrivalAirport",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "departureTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "isActive",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "policyCounter",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "flightNumber",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "departureAirport",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "arrivalAirport",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "departureTime",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "purchasePolicy",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    }
+]
