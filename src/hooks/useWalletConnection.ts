@@ -14,6 +14,7 @@ interface WalletConnectionResult {
   signer?: JsonRpcSigner;
 }
 
+
 const useWalletConnection = (): { result: WalletConnectionResult; connectToMetaMask: () => Promise<void> } => {
   const [connectionStatus, setConnectionStatus] = useState<WalletConnectionResult>({
     isConnected: false,

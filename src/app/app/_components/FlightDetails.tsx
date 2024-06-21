@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 const api_url = "https://flight.api-service.live"
 
-const page = () => {
+const Page = () => {
 
   const [data, setData] = useState("")
   const [error, setError] = useState("")
@@ -48,7 +48,7 @@ const page = () => {
     );
 }
 
-export default page
+export default Page
 
 
 
