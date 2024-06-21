@@ -44,7 +44,7 @@ const Illustration = () => {
                 </div>
             </div>
             <footer className="absolute bottom-0 left-0 right-0 p-4 text-center text-white">
-                <p>© 2023 SkySecure Insurance. Powered by <span className="font-semibold">zkpass</span>.</p>
+                <p>© 2024 SkySecure Insurance. Powered by <span className="font-semibold text-green-400">zkpass</span>.</p>
             </footer>
 
             <div
