@@ -38,17 +38,23 @@ const FlightDetailsVerification = ({ goToPreviousStep, goToNextStep }: FlightDet
 			departureDate: Math.floor(new Date(data.departureDate).getTime() / 1000), 
 			arrivalDate: Math.floor(new Date(data.arrivalDate).getTime() / 1000),
 		};
-
+	
 		const id = toast.loading("Purchasing Insurance...");
 		setLoading(true);
 
 		try {
-			const contractAddress = "0x481c33d172f87CBb318Ecf8eF786EA6d4F633A92";
-			const provider = accountPData.provider;
-			const signer = accountPData.signer;
-			const contract = new ethers.Contract(contractAddress, PurchaseInsuranceABI, signer);
+			const ethereum = window.ethereum;
 
-			// Calling purchasePolicy with the correct parameters
+			// const accounts = await window.ethereum.request({
+			// 	method: 'eth_requestAccounts',
+			//   });
+
+			const contractAddress = "0x481c33d172f87CBb318Ecf8eF786EA6d4F633A92";
+			// const provider = accountPData.provider;
+			const provider = new ethers.BrowserProvider(ethereum);
+			const signer = await provider.getSigner();
+			const contract = new ethers.Contract(contractAddress, PurchaseInsuranceABI, signer);
+			console.log("contract",contract)
 			const transaction = await contract.purchasePolicy(
 				payload.flightNumber,
 				payload.departureAirport,
