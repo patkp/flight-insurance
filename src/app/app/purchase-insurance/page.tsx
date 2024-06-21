@@ -1,13 +1,13 @@
 'use client';
 
-import GenerateZkProofComponent from "../_components/GenerateZkProof";
+import PurchaseInsurance from "../_components/PurchaseInsurance";
 
 
 export default function page() {
     const goToPreviousStep = () => {};
     const goToNextStep = () => {};
   
-	return <GenerateZkProofComponent goToPreviousStep={goToPreviousStep} goToNextStep={goToNextStep}  />;
+	return <PurchaseInsurance goToPreviousStep={goToPreviousStep} goToNextStep={goToNextStep}  />;
 }
 
 
