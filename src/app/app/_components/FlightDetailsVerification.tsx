@@ -63,7 +63,7 @@ const FlightDetailsVerification = ({ goToPreviousStep, goToNextStep }: FlightDet
 		setLoading(true);
 		goToNextStep();
 		try {
-            const appid = "78bcc614-268b-428f-ae38-0e993fbe38be"
+            const appid = "260c0eea-56ec-4851-95eb-64f17108c8a0"
 			console.log("appid", appid)
     
             const connector = new TransgateConnect(appid)
@@ -72,7 +72,7 @@ const FlightDetailsVerification = ({ goToPreviousStep, goToNextStep }: FlightDet
             const isAvailable = await connector.isTransgateAvailable()
     
             if (isAvailable) {
-                const schemaId = "d0d6908756ec44d5aa4805174b348104"
+                const schemaId = "c8f7816736ac44758c652197a10f1dde"
     
                 const address = accountPData?.address
     

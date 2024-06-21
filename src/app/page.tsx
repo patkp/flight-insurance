@@ -11,6 +11,8 @@ import { useAccount } from '@/context/AccountContext';
 import useWalletConnection from "@/hooks/useWalletConnection";
 import FlightDetailsVerification from "./app/_components/FlightDetailsVerification";
 import GenerateZkProofComponent from "./app/_components/GenerateZkProof";
+import VerifyProof from "./app/_components/VerifyProof";
+import PurchaseInsurance from "./app/_components/PurchaseInsurance"
 
 
 export interface AccountType {
@@ -84,6 +86,13 @@ const GetStarted = () => {
          {activeStep === 2 && (
           <GenerateZkProofComponent goToPreviousStep={goToPreviousStep} goToNextStep={goToNextStep} />
         )}
+         {activeStep === 3 && (
+          <VerifyProof goToPreviousStep={goToPreviousStep} goToNextStep={goToNextStep} />
+        )}
+         {activeStep === 4 && (
+          <PurchaseInsurance goToPreviousStep={goToPreviousStep} goToNextStep={goToNextStep} />
+        )}
+
       </div>
     </GetStartedWrapper>
   )

@@ -48,8 +48,9 @@ const FlightDetailsVerification = ({ goToPreviousStep, goToNextStep }: FlightDet
 			const signer = accountPData.signer;
 			const contract = new ethers.Contract(contractAddress, PurchaseInsuranceABI, signer);
 
-			const transaction = await contract.purchaseInsurance(
+			const transaction = await contract.purchasePolicy(
 				payload.flightNumber,
+				payload.departureAirport,
 				payload.departureDate,
 				payload.arrivalDate,
 				{ value: ethers.parseEther("0.001") } 
