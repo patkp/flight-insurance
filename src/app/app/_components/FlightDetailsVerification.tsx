@@ -119,6 +119,7 @@ const FlightDetailsVerification = ({ goToPreviousStep, goToNextStep }: FlightDet
                   let tx = await signer.sendTransaction(transaction);
                   console.log(tx)
                   alert('Transaction sent successfully!');
+				  goToNextStep();
     
             } else {
                 window.location.href = "https://chromewebstore.google.com/detail/zkpass-transgate/afkoofjocpbclhnldmmaphappihehpma";
